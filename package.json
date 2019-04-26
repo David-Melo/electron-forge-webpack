@@ -1,0 +1,86 @@
+{
+  "name": "forge-webpack",
+  "productName": "forge-webpack",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "./dist/main/main.js",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "tslint --project tsconfig.json --type-check --force"
+  },
+  "keywords": [],
+  "author": "david.melo",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip",
+          "dmg"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "ignore": [
+          "\\.idea"
+        ],
+        "packageManager": "yarn"
+      },
+      "electronWinstallerConfig": {
+        "name": "forge_webpack"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "forgewebpack"
+      }
+    }
+  },
+  "dependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/electron-devtools-installer": "^2.0.2",
+    "@types/react": "^16.8.14",
+    "@types/react-dom": "^16.8.4",
+    "dotenv": "^7.0.0",
+    "electron-compile": "^6.4.4",
+    "electron-devtools-installer": "^2.1.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "source-map-support": "^0.5.12",
+    "tslib": "^1.4.0",
+    "webpack": "^4.30.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "4.0.0",
+    "electron-webpack": "^2.6.2",
+    "electron-webpack-ts": "^3.1.1",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "tslint": "^5.1.0",
+    "typescript": "^3.4.5"
+  }
+}
